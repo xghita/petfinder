@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/pet_list">
+
+    <fragment
+        android:id="@+id/pet_list"
+        android:name="com.ghitai.petfinder.ui.list.PetListFragment"
+        android:label="PetListFragment"
+        tools:layout="@layout/fragment_pet_list">
+
+        <action
+            android:id="@+id/action_pet_list_to_pet_detail"
+            app:destination="@id/pet_detail">
+
+            <argument
+                android:name="pet_id"
+                android:defaultValue="0"
+                app:argType="integer" />
+            <argument
+                android:name="pet_name"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/pet_detail"
+        android:name="com.ghitai.petfinder.ui.detail.PetDetailFragment"
+        android:label="PetDetailFragment"
+        tools:layout="@layout/fragment_pet_detail" />
+
+</navigation>

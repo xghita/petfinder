@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+ <data>
+
+        <variable
+            name="data"
+            type="com.ghitai.petfinder.ui.detail.PetDetailViewState" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:transitionName="@string/card_view_transition"
+            android:layout_margin="@dimen/margin_medium"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:background="@color/selected"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.0px"
+            android:elevation="@dimen/elevation_medium"
+            app:cardCornerRadius="@dimen/corner_radius_small"
+            app:cardElevation="@dimen/elevation_small"
+            app:cardPreventCornerOverlap="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/selected"
+                android:paddingBottom="@dimen/margin_standard"
+                android:paddingStart="@dimen/margin_large"
+                android:paddingEnd="@dimen/margin_large">
+
+                <ImageView
+                    android:id="@+id/avatarIv"
+                    android:layout_width="@dimen/image_size"
+                    android:layout_height="@dimen/image_size"
+                    android:layout_margin="@dimen/margin_xStandard"
+                    android:background="@color/selected"
+                    android:contentDescription="@string/avatar"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/breedTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_xSmall"
+                    android:gravity="center_vertical"
+                    android:text="@{data.breed}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_title"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/avatarIv" />
+
+                <TextView
+                    android:id="@+id/sizeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_xSmall"
+                    android:gravity="center"
+                    android:text="@{data.size}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_subTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/breedTv" />
+
+
+                <TextView
+                    android:id="@+id/genderTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_xSmall"
+                    android:text="@{data.gender}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_message"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sizeTv" />
+
+                <TextView
+                    android:id="@+id/statusTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_xSmall"
+                    android:gravity="center_vertical"
+                    android:text="@{data.status}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_message"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/genderTv"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_xSmall"
+                    android:gravity="center_vertical"
+                    android:text="@{Double.toString(data.distance)}"
+                    app:visibleIfNotNull="@{data.distance}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_message"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/statusTv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </ScrollView>
+
+</layout>
