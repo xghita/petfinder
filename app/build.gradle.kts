@@ -20,9 +20,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
     }
 
     buildTypes {
@@ -78,6 +75,7 @@ dependencies {
     // Room for local database
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.navigation:navigation-fragment:2.7.7")
+    implementation("androidx.test.ext:junit-ktx:1.1.5")
     ksp("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
 
@@ -103,9 +101,22 @@ dependencies {
     //Secure prefs
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
+    // JUnit
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // AndroidX Test - Core library
+    testImplementation("androidx.test:core:1.5.0")
+    androidTestImplementation("androidx.test:runner:1.5.2")
+
+    // LiveData Testing
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+
+    // Mockito
+    testImplementation("org.mockito:mockito-core:4.8.0")
+    // Mockito Kotlin support
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+    testImplementation("org.mockito:mockito-inline:4.0.0")
+
 }
 
 kotlin {

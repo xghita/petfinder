@@ -11,13 +11,13 @@ import com.ghitai.petfinder.core.events.SuccessUI
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class PetListViewModel(repoProvider: PetProvider) : PetViewModel() {
+class PetListViewModel(petProvider: PetProvider) : PetViewModel() {
 
     private val listViewStateMapper = PetListViewStateMapper()
     private val petListViewState = MutableLiveData<PetListViewState>()
 
     init {
-        addDisposable(repoProvider.getPetList()
+        addDisposable(petProvider.getPetList()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe {

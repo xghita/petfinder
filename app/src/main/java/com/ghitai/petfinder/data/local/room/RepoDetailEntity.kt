@@ -12,6 +12,6 @@ data class PetDetailEntity(
     val size: String,
     val gender: String,
     val status: String,
-    val distance: Double,
+    val distance: Double?,
     val photoUrl: String?
 )
