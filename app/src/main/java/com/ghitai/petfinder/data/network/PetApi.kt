@@ -12,10 +12,15 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
+const val AUTHORIZATION_HEADER = "Authorization"
+const val BEARER = "Bearer"
+const val KEY = "key"
+const val TOKEN = "token"
+
 interface PetApi {
 
     @FormUrlEncoded
-    @POST("oauth2/token")
+    @POST("oauth2/$TOKEN")
     fun getAccessToken(
         @Field("grant_type") grantType: String,
         @Field("client_id") clientId: String,

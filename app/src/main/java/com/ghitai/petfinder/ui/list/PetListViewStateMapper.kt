@@ -18,8 +18,7 @@ class PetListViewStateMapper : ViewStateMapper<PetListResponse, PetListViewState
                     type = it.breeds.primary,
                     photoUrl = it.photo?.getUrl(PhotoExt.PHOTO_CROP)
                 )
-            },
-            scrollList = false
+            }
         )
     }
 

@@ -39,11 +39,5 @@ open class BaseViewModel<Action> : ViewModel() {
         compositeDisposable.clear()
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    fun onViewLifecycleStart() {
-        onStart()
-    }
-
-    protected open fun onStart() {}
 
 }

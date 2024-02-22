@@ -8,9 +8,7 @@ import okhttp3.Route
 
 const val CLIENT_ID = "8FvB92COL3loJkRHBozGPLOVKZTG4CgXal6Dou6EjsH5lj2SXB"
 const val CLIENT_SECRET = "zcYSA3CrhG6yW1dc539o8rAVgj7ecwLUaYHTSe3s"
-const val AUTHORIZATION_HEADER = "Authorization"
-const val BEARER = "Bearer"
-const val KEY = "key"
+const val CLIENT_CREDENTIALS = "client_credentials"
 
 class TokenAuthenticator(
     private val encryptedSharedPreferences: SharedPreferences,
@@ -24,7 +22,7 @@ class TokenAuthenticator(
     override fun authenticate(route: Route?, response: Response): Request {
 
         val token = lazyPetApi.getAccessToken(
-            grantType = "client_credentials",
+            grantType = CLIENT_CREDENTIALS,
             clientId = CLIENT_ID,
             clientSecret = CLIENT_SECRET,
         ).blockingGet().accessToken

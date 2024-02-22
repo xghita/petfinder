@@ -11,7 +11,7 @@ class HeaderInterceptor(private val encryptedSharedPreferences: SharedPreference
         val originalRequest = chain.request()
 
         val modifiedRequest =
-            if (!chain.request().url.toString().contains("token")) {
+            if (!chain.request().url.toString().contains(TOKEN)) {
                 originalRequest.newBuilder()
                     .header(
                         AUTHORIZATION_HEADER,

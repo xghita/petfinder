@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName
 
 data class PetDetailResponse(@SerializedName("animal") val animal: AnimalDetail)
 
-
 data class AnimalDetail(
     @SerializedName("id") val id: Int = 0,
     @SerializedName("breeds") val breeds: Breeds,

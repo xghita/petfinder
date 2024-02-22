@@ -53,7 +53,7 @@ class LoadingDialog(context: Context) :
             startTime = System.currentTimeMillis()
             try {
                 super.show()
-            } catch (exception: WindowManager.BadTokenException) {
+            } catch (_: WindowManager.BadTokenException) {
             }
         }
     }

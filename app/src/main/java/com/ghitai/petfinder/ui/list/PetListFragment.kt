@@ -54,7 +54,6 @@ class PetListFragment : BaseFragment() {
             }
 
             petAdapter.updateList(viewState.animals)
-            if (viewState.scrollList) binding.petsRv.scrollToPosition(0)
         }
     }
 

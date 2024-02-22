@@ -1,7 +1,6 @@
 package com.ghitai.petfinder.data.pet
 
 sealed class Pet {
-
     data class ListItem(
         val id: Int = -1,
         val type: String = "",
