@@ -13,10 +13,6 @@ class MessageDialog(
     private var primaryButtonLabel: String = "",
 ) : Dialog<DialogMessageBinding>(context, R.layout.dialog_message), View.OnClickListener {
 
-    private var onPrimaryClicked: ((v: View) -> Unit)? = null
-
-    private var onCloseClicked: ((v: View) -> Unit)? = null
-
     init {
         binding.apply {
             title = this@MessageDialog.title
@@ -36,10 +32,5 @@ class MessageDialog(
 
     override fun onClick(v: View) {
         dismiss()
-
-        when (v.id) {
-            R.id.close -> onCloseClicked?.invoke(v)
-            R.id.primaryButton -> onPrimaryClicked?.invoke(v)
-        }
     }
 }
