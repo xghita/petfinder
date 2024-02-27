@@ -1,6 +1,6 @@
 package com.ghitai.petfinder.core.events
 
-open class SuccessUI(
+open class  SuccessUI(
     open val message: String? = null
 ) : EventUI {
 

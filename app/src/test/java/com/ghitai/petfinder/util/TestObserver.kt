@@ -10,11 +10,9 @@ import java.util.concurrent.CountDownLatch
 class TestObserver<T> private constructor() : Observer<T> {
     private val valueHistory = ArrayList<T>()
     private val onChanged = ArrayList<Consumer<T>>()
-    private var valueLatch = CountDownLatch(1)
 
     override fun onChanged(value: T) {
         valueHistory.add(value)
-        valueLatch.countDown()
 
         for (consumer in onChanged) {
             consumer.accept(value)

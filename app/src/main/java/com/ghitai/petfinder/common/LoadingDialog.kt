@@ -21,19 +21,6 @@ private const val MIN_DELAY_MS = 300L
 class LoadingDialog(context: Context) :
     Dialog<DialogLoadingBinding>(context, R.layout.dialog_loading) {
 
-    /**
-     * If the cancelCallback is set then the LoadingDialog becomes cancellable and will execute the
-     * callback upon being dismissed
-     */
-    var cancelCallback: (() -> Unit)? = null
-        set(value) {
-            (value != null).let {
-                cancellable = it
-                setCancelable(it)
-            }
-            field = value
-        }
-
     private var startTime: Long = -1
     private var postedHide = false
     private var postedShow = false
@@ -71,10 +58,7 @@ class LoadingDialog(context: Context) :
     }
 
     override fun cancel() {
-        performDismissAction {
-            super.cancel()
-            cancelCallback?.invoke()
-        }
+        performDismissAction { super.cancel() }
     }
 
     override fun dismiss() {

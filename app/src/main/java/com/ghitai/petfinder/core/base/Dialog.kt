@@ -17,7 +17,6 @@ open class Dialog<T>(context: Context, layout: Int) : Dialog(context, R.style.Di
         private const val DEFAULT_ANIMATION_DURATION = 200L
     }
 
-    protected var cancellable = false
 
     protected var binding: T = DataBindingUtil.inflate(
         LayoutInflater.from(context),
@@ -29,7 +28,6 @@ open class Dialog<T>(context: Context, layout: Int) : Dialog(context, R.style.Di
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        setCancelable(cancellable)
 
         setupWindow()
     }

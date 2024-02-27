@@ -13,7 +13,7 @@ interface LocalDataStorage {
 
 class LocalDataStorageImpl(private val petDetailDao: PetDetailDao) : LocalDataStorage {
 
-    override fun getPetDetail(petId: Int): Single<Pet.Detail> {
+    override fun getPetDetail(petId: Int): Single<Pet.Detail>{
         return petDetailDao.getPetDetail(petId).map {
             Pet.Detail(
                 name = it.name,

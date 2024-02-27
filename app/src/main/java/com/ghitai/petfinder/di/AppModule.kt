@@ -17,7 +17,6 @@ import com.ghitai.petfinder.provider.PetProviderImpl
 import com.ghitai.petfinder.ui.detail.PetDetailViewModel
 import com.ghitai.petfinder.ui.list.PetListViewModel
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -37,7 +36,7 @@ val networkModule = module {
     single { createRetrofit(get()) }
     single { createApiService(get()) }
     single { HeaderInterceptor(get()) }
-    factory { TokenAuthenticator(get()) { get<PetApi>() } }
+    single { TokenAuthenticator(get()) { get<PetApi>() } }
 }
 
 val persistenceModule = module {
@@ -69,9 +68,6 @@ fun createOkHttpClient(tokenAuthenticator: TokenAuthenticator, headerInterceptor
     return OkHttpClient.Builder()
         .addInterceptor(headerInterceptor)
         .authenticator(tokenAuthenticator)
-        .addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY // Set your desired log level
-        })
         .build()
 }
 

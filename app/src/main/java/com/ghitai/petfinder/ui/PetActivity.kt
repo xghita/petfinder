@@ -39,7 +39,6 @@ class PetActivity : FragmentActivity() {
                         binding.toolbar.title = ""
                     }
                    PetDetailFragment::class.java.simpleName -> {
-
                        binding.toolbar.title =
                             arguments?.getString("pet_name") ?: getString(R.string.pet_detail_title)
                     }
